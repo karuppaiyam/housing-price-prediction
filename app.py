@@ -26,8 +26,8 @@ def predict():
     parking = int(request.form.get('parking'))
     areaperbedroom = float(request.form.get('areaperbedroom'))
     bbratio = float(request.form.get('bbratio'))
-    prediction = model.predict(
-        [[area, bedroom, bathrooms, stories, guestroom, basement, parking, areaperbedroom, bbratio]])
+
+    prediction = model.predict([[area, bedroom, bathrooms, stories, guestroom, basement, parking,areaperbedroom, bbratio]]) #, areaperbedroom, bbratio
     output = round(prediction[0], 2)
 
     return render_template('index.html', prediction_text='The house price predicted is Rupees {}'.format(output))
